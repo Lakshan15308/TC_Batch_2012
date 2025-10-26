@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en", lang="sinhala">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -69,25 +69,25 @@
     <h2>Application Form</h2>
     <form id="appForm">
       <label>Surname</label>
-      <input type="text" name="surname" required>
+      <input type="text" name="Surname" required>
 
       <label>First Name</label>
-      <input type="text" name="firstname" required>
+      <input type="text" name="Firstname" required>
 
       <label>Middle Name</label>
-      <input type="text" name="middlename">
+      <input type="text" name="Middlename">
 
       <label>Contact Number</label>
-      <input type="text" name="contact" required>
+      <input type="text" name="Contact" required>
 
       <label>WhatsApp Number</label>
-      <input type="text" name="whatsapp">
+      <input type="text" name="Whatsapp">
 
       <label>Email Address</label>
-      <input type="email" name="email" required>
+      <input type="email" name="Email" required>
 
       <label>Marital Status</label>
-      <select name="marital" id="marital" required>
+      <select name="marital" id="Marital" required>
         <option value="">Select</option>
         <option value="Not Married">Not Married</option>
         <option value="Married">Married</option>
@@ -123,7 +123,7 @@
       </select>
 
       <label>Country of Residence</label>
-      <input type="text" name="country" required>
+      <input type="text" name="Country" required>
 
       <label>Resident Address</label>
       <textarea name="resident" rows="2" required></textarea>
@@ -142,18 +142,18 @@
       </select>
 
       <label>Year of Admission</label>
-      <input type="number" name="admission" required>
+      <input type="number" name="Admission" required>
 
       <label>Year of Leave</label>
-      <input type="number" name="leave" required>
+      <input type="number" name="Leave" required>
 
       <label>Payment Details</label>
       <textarea name="payment" rows="2"></textarea>
 
       <label>Attachment</label>
-      <input type="file" name="attachment" id="attachment">
+      <input type="file" name="Attachment" id="attachment">
 
-      <button type="submit">Submit</button>
+      <button type="Submit">Submit</button>
     </form>
 <h5>Note - If there any further clarification or assistance needed. Feel free to contact us via E-mail - thurstan.group12@gmail.com</h5>
     <div class="thank-you" id="thankYouMsg">✅ Thank you! Your application has been submitted.</div>
@@ -179,7 +179,7 @@
       const response = await fetch(scriptURL, { method: "POST", body: data });
       if (response.ok) {
         form.reset();
-        document.getElementById("thankYouMsg").style.display = "block";
+        document.getElementById("ThankYouMsg").style.display = "block";
       } else {
         alert("There was an error submitting the form.");
       }
