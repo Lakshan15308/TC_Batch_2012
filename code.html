@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 20px;
+      background: #3498db;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    .thank-you {
+      display: none;
+      text-align: center;
+      color: green;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Application Form</h2>
+    <form id="appForm">
+      <label>Surname</label>
+      <input type="text" name="surname" required>
+
+      <label>First Name</label>
+      <input type="text" name="firstname" required>
+
+      <label>Middle Name</label>
+      <input type="text" name="middlename">
+
+      <label>Contact Number</label>
+      <input type="text" name="contact" required>
+
+      <label>WhatsApp Number</label>
+      <input type="text" name="whatsapp">
+
+      <label>Email Address</label>
+      <input type="email" name="email" required>
+
+      <label>Marital Status</label>
+      <select name="marital" id="marital" required>
+        <option value="">Select</option>
+        <option value="Not Married">Not Married</option>
+        <option value="Married">Married</option>
+      </select>
+
+      <div id="marriedFields" style="display:none;">
+        <label>Spouse Name</label>
+        <input type="text" name="spouse">
+        <label>Children (names and ages)</label>
+        <textarea name="children" rows="2"></textarea>
+      </div>
+
+      <label>Date of Birth</label>
+      <input type="date" name="dob" required>
+
+      <label>Country of Residence</label>
+      <input type="text" name="country" required>
+
+      <label>Resident Address</label>
+      <textarea name="resident" rows="2" required></textarea>
+
+      <label>Permanent Address</label>
+      <textarea name="permanent" rows="2" required></textarea>
+
+      <label>Occupation and Company Details</label>
+      <textarea name="occupation" rows="2"></textarea>
+
+      <label>Consent to Take Information</label>
+      <select name="consent" required>
+        <option value="">Select</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>Year of Admission</label>
+      <input type="number" name="admission" required>
+
+      <label>Year of Leave</label>
+      <input type="number" name="leave" required>
+
+      <label>Payment Details</label>
+      <textarea name="payment" rows="2"></textarea>
+
+      <label>Attachment</label>
+      <input type="file" name="attachment" id="attachment">
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="thank-you" id="thankYouMsg">✅ Thank you! Your application has been submitted.</div>
+  </div>
+
+  <script>
+    // Show spouse/children fields when "Married" is selected
+    document.getElementById("marital").addEventListener("change", function() {
+      const marriedFields = document.getElementById("marriedFields");
+      marriedFields.style.display = this.value === "Married" ? "block" : "none";
+    });
+
+    // Submit form
+    document.getElementById("appForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const data = new FormData(form);
+
+      // Replace below with your Google Apps Script Web App URL
+      const scriptURL = "YOUR_GOOGLE_APPS_SCRIPT_WEBAPP_URL";
+
+      const response = await fetch(scriptURL, { method: "POST", body: data });
+      if (response.ok) {
+        form.reset();
+        document.getElementById("thankYouMsg").style.display = "block";
+      } else {
+        alert("There was an error submitting the form.");
+      }
+    });
+  </script>
+</body>
+</html>
