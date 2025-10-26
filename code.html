@@ -119,7 +119,7 @@
         <option value="Saudi Arabia">Saudi Arabia </option>
         <option value="New Zealand">New Zealand </option>
         <option value="Finland">Finland </option>
-        <option value="Other">Other / වෙනත්</option>
+        <option value="Other">Other </option>
       </select>
 
       <label>Country of Residence</label>
@@ -174,7 +174,7 @@
       const data = new FormData(form);
 
       // Replace below with your Google Apps Script Web App URL
-      const scriptURL = "YOUR_GOOGLE_APPS_SCRIPT_WEBAPP_URL";
+      const scriptURL = "https://script.google.com/macros/s/AKfycbzxSIn7OWIfENGeR3f6bEcY41cTQF8gerKFJtwA1G_m8ZiiWug4ar1mmVSu5tc-3haYxw/exec";
 
       const response = await fetch(scriptURL, { method: "POST", body: data });
       if (response.ok) {
